@@ -88,6 +88,44 @@ Just ask Claude to interact with your browser:
 
 > "Go to the settings page and figure out why the save button isn't working"
 
+### Example Use Cases
+
+**Testing & Verification**
+- "Test the checkout flow end-to-end and make sure the payment form validates correctly"
+- "Verify that the login page shows an error when I enter an invalid password"
+- "Check if the mobile viewport displays the navigation menu correctly"
+- "Run through the onboarding wizard and screenshot each step"
+
+**Debugging**
+- "The submit button on the contact form isn't working - help me debug it"
+- "Take a screenshot of the dashboard and tell me if the layout looks broken"
+- "Inspect the page state after login and tell me what cookies are being set"
+- "Figure out why the modal isn't closing when I click outside of it"
+
+**Form Automation**
+- "Fill out the registration form with test data and submit it"
+- "Enter my shipping address into the checkout form"
+- "Select all the checkboxes in the preferences panel"
+- "Upload a test image to the profile picture field"
+
+**Data Extraction**
+- "Scrape the product prices from this search results page"
+- "Extract all the links from the navigation menu"
+- "Get the text content from each card in the grid"
+- "Capture the API response when I load the user profile"
+
+**Using Your Logged-in Sessions (Extension Mode)**
+- "Connect to my Chrome and check my GitHub notifications"
+- "Use my logged-in session to verify the admin dashboard loads correctly"
+- "Access my email and check if the verification link arrived"
+- "Test the authenticated API endpoints using my existing cookies"
+
+**Visual Verification**
+- "Take a full-page screenshot and compare it to the design mockup"
+- "Screenshot the error state when the API returns a 500"
+- "Capture what the page looks like before and after the animation"
+- "Show me the accessibility tree so I can check the ARIA labels"
+
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
