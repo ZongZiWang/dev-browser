@@ -2,6 +2,8 @@
   <img src="assets/header.png" alt="Dev Browser - Browser automation for Claude Code" width="100%">
 </p>
 
+👋 **Welcome to Dev Browser!** We're excited to have you here. Whether you're automating tests, debugging web apps, or exploring new workflows, we hope this tool makes your development experience smoother and more enjoyable.
+
 A browser automation plugin for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that lets Claude control your browser to test and verify your work as you develop.
 
 **Key features:**
