@@ -88,6 +88,39 @@ Just ask Claude to interact with your browser:
 
 > "Go to the settings page and figure out why the save button isn't working"
 
+## Quick Start
+
+Here's a simple example that navigates to a URL and takes a screenshot:
+
+```typescript
+import { chromium } from "playwright";
+
+async function main() {
+  // Launch the browser
+  const browser = await chromium.launch({ headless: false });
+  const page = await browser.newPage();
+
+  // Navigate to a URL
+  await page.goto("https://example.com");
+
+  // Take a screenshot
+  await page.screenshot({ path: "screenshot.png" });
+
+  console.log("Screenshot saved to screenshot.png");
+
+  // Close the browser
+  await browser.close();
+}
+
+main();
+```
+
+Run the script with:
+
+```bash
+npx tsx script.ts
+```
+
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
