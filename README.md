@@ -1,3 +1,5 @@
+<!-- This project is maintained by the community -->
+
 <p align="center">
   <img src="assets/header.png" alt="Dev Browser - Browser automation for Claude Code" width="100%">
 </p>
