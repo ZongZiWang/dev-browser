@@ -82,11 +82,49 @@ Or run with `claude --dangerously-skip-permissions` (skips all prompts).
 
 ## Usage
 
-Just ask Claude to interact with your browser:
+Just ask Claude to interact with your browser. Here are some examples:
+
+### Testing & Verification
 
 > "Open localhost:3000 and verify the signup flow works"
 
 > "Go to the settings page and figure out why the save button isn't working"
+
+> "Test the checkout flow end-to-end and screenshot any errors"
+
+> "Fill out the contact form and verify the validation messages"
+
+### Debugging
+
+> "The login page is broken - take a screenshot and inspect the DOM"
+
+> "Check why the dropdown menu isn't appearing when clicked"
+
+> "Navigate to the dashboard and tell me what API requests are failing"
+
+### Web Scraping & Data Extraction
+
+> "Go to this job board and extract all the senior engineer positions"
+
+> "Scrape the product listings from this page into a JSON file"
+
+> "Capture the API responses from this feed and save the data"
+
+### Automation with Existing Sessions (Extension Mode)
+
+> "Log into my GitHub and star this repository"
+
+> "Go to my email and find the latest invoice"
+
+> "Use my logged-in Twitter session to bookmark this thread"
+
+### Visual Inspection
+
+> "Take a full-page screenshot of the homepage"
+
+> "Compare the mobile and desktop layouts of this page"
+
+> "Screenshot each step of the onboarding wizard"
 
 ## Benchmarks
 
