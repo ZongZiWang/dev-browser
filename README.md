@@ -102,14 +102,6 @@ Just ask Claude to interact with your browser. Here are some examples:
 
 > "Navigate to the dashboard and tell me what API requests are failing"
 
-### Web Scraping & Data Extraction
-
-> "Go to this job board and extract all the senior engineer positions"
-
-> "Scrape the product listings from this page into a JSON file"
-
-> "Capture the API responses from this feed and save the data"
-
 ### Automation with Existing Sessions (Extension Mode)
 
 > "Log into my GitHub and star this repository"
