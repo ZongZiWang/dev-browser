@@ -102,6 +102,24 @@ Just ask Claude to interact with your browser:
 
 > "Capture the API responses when I scroll through this feed"
 
+> "Download all images from this gallery page"
+
+> "Extract the table data from this page and save it as JSON"
+
+> "Scrape job listings from this careers page with title, company, and location"
+
+> "Get all the review ratings and comments from this product page"
+
+> "Extract contact information (emails, phone numbers) from this directory"
+
+> "Intercept the GraphQL API and extract the full dataset with pagination"
+
+> "Scrape search results and follow each link to get detailed information"
+
+> "Export my social media followers list using the logged-in session"
+
+> "Extract all form field names and values from this page for testing"
+
 ### Visual Verification
 
 > "Take a screenshot of the homepage on mobile viewport"
