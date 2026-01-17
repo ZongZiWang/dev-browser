@@ -88,6 +88,25 @@ Just ask Claude to interact with your browser:
 
 > "Go to the settings page and figure out why the save button isn't working"
 
+## Hello World Example
+
+Here's a simple example to verify everything is working:
+
+```
+Open https://example.com and take a screenshot
+```
+
+Claude will:
+1. Launch a browser (or connect to your Chrome if using the extension)
+2. Navigate to example.com
+3. Capture and display a screenshot
+
+You can also try interactive examples:
+
+```
+Go to https://google.com, type "hello world" in the search box, and press Enter
+```
+
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
