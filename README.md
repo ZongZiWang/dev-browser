@@ -88,6 +88,43 @@ Just ask Claude to interact with your browser:
 
 > "Go to the settings page and figure out why the save button isn't working"
 
+### More Use Cases
+
+**Testing & Verification**
+
+- "Test the login flow with invalid credentials and verify error messages display correctly"
+- "Fill out the contact form and confirm the success message appears"
+- "Verify that the responsive design works - check the navigation menu at mobile viewport size"
+- "Run through the checkout process and make sure the cart total updates correctly"
+
+**Debugging & Investigation**
+
+- "The dropdown menu isn't closing - investigate what's happening when I click outside it"
+- "Check the network tab and see why the API call to /users is failing"
+- "Take a screenshot of the current state of the dashboard for me"
+- "Inspect the modal and tell me why it's not centered properly"
+
+**Development Workflow**
+
+- "Open the app at localhost:5173 and keep it open while I make changes"
+- "Navigate to the admin panel and test each CRUD operation on the products table"
+- "Compare how the button looks in light mode vs dark mode"
+- "Click through all the links in the footer and report any that are broken"
+
+**Form & Input Testing**
+
+- "Test form validation by submitting empty required fields"
+- "Verify the date picker works correctly and doesn't allow past dates"
+- "Check that the file upload accepts only PDF and image files"
+- "Test the search autocomplete and verify suggestions appear after 3 characters"
+
+**Authentication & Sessions**
+
+- "Log in as a test user and verify the dashboard shows the correct data"
+- "Test the password reset flow from start to finish"
+- "Verify that protected routes redirect to login when not authenticated"
+- "Check if the session persists after refreshing the page"
+
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
