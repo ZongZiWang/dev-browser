@@ -84,9 +84,55 @@ Or run with `claude --dangerously-skip-permissions` (skips all prompts).
 
 Just ask Claude to interact with your browser:
 
+### Testing & Debugging
+
 > "Open localhost:3000 and verify the signup flow works"
 
 > "Go to the settings page and figure out why the save button isn't working"
+
+> "Test the login form with invalid credentials and check the error messages"
+
+> "Navigate through the checkout flow and make sure the total updates correctly"
+
+### Form Automation
+
+> "Fill out the contact form on the about page and submit it"
+
+> "Log into my dev account and check the dashboard"
+
+> "Complete the multi-step registration wizard"
+
+### Visual Verification
+
+> "Take a screenshot of the homepage on desktop and mobile viewports"
+
+> "Check if the responsive menu works correctly on smaller screens"
+
+> "Verify the dark mode toggle changes all the colors properly"
+
+### Data Extraction
+
+> "Scrape the product listings from the search results page"
+
+> "Extract all the comments from this article"
+
+> "Get the data from the table on this page and save it as JSON"
+
+### Navigation & Exploration
+
+> "Go to the admin panel and show me what options are available"
+
+> "Find the user profile page and tell me what fields are editable"
+
+> "Navigate to the API documentation and summarize the endpoints"
+
+### Integration Testing
+
+> "Test the OAuth login flow with Google"
+
+> "Verify the webhook is triggered when I submit this form"
+
+> "Check that the real-time notifications appear when events are fired"
 
 ## Benchmarks
 
