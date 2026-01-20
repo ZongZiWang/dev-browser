@@ -94,6 +94,12 @@ Just ask Claude to interact with your browser:
 
 > "Fill out the contact form and verify the validation messages"
 
+> "Test the search functionality with different query terms"
+
+> "Verify the pagination works correctly on the products page"
+
+> "Check that the modal opens and closes properly"
+
 ### Debugging
 
 > "Take a screenshot of the dashboard and tell me what's broken"
@@ -101,6 +107,24 @@ Just ask Claude to interact with your browser:
 > "Navigate to the profile page and inspect why the avatar isn't loading"
 
 > "Check the console for errors on the login page"
+
+> "Inspect the network requests when submitting the form"
+
+> "Find out why the dropdown menu isn't appearing"
+
+> "Debug why the infinite scroll stops loading after a few pages"
+
+### Form Automation
+
+> "Fill out the multi-step registration form with test data"
+
+> "Submit the survey form with random answers"
+
+> "Test all the input validations on the signup form"
+
+> "Upload a file to the document upload form"
+
+> "Select options from all the dropdowns and submit"
 
 ### Data Extraction & Scraping
 
@@ -110,6 +134,22 @@ Just ask Claude to interact with your browser:
 
 > "Capture the API responses when I scroll through the feed"
 
+> "Get all the prices and product names from this e-commerce page"
+
+> "Extract the table data and convert it to CSV"
+
+> "Scrape all the job listings with their descriptions"
+
+### Navigation & Exploration
+
+> "Navigate through the main menu and list all available pages"
+
+> "Click through the onboarding flow and document each step"
+
+> "Explore the API documentation and find all endpoints"
+
+> "Go through the help center and list all FAQ topics"
+
 ### Authenticated Sessions (Chrome Extension)
 
 > "Connect to my Chrome and check my GitHub notifications"
@@ -118,6 +158,12 @@ Just ask Claude to interact with your browser:
 
 > "Go to my Twitter profile and get my recent posts"
 
+> "Access my account settings using my logged-in session"
+
+> "Check my order history on the e-commerce site"
+
+> "Navigate to my private dashboard"
+
 ### Visual Verification
 
 > "Take a full-page screenshot of the landing page"
@@ -125,6 +171,34 @@ Just ask Claude to interact with your browser:
 > "Compare how the page looks before and after my CSS changes"
 
 > "Scroll through the page and capture screenshots at each section"
+
+> "Take screenshots at different viewport sizes for responsive testing"
+
+> "Capture the hover states of all the buttons"
+
+> "Screenshot the page in both light and dark mode"
+
+### End-to-End Workflows
+
+> "Complete a full user journey from registration to first purchase"
+
+> "Test the entire password reset flow from email to new password"
+
+> "Go through the entire onboarding process as a new user"
+
+> "Simulate a user booking an appointment from start to finish"
+
+> "Test the complete order flow including cancellation"
+
+### Accessibility & Content
+
+> "Check what screen readers would see on the homepage"
+
+> "List all the interactive elements on the page"
+
+> "Verify all images have alt text"
+
+> "Check the heading structure of the page"
 
 ## Benchmarks
 
