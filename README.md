@@ -88,6 +88,53 @@ Just ask Claude to interact with your browser:
 
 > "Go to the settings page and figure out why the save button isn't working"
 
+## Use Cases
+
+### Testing Web Applications
+
+Verify features work correctly during development:
+
+- Test user flows (signup, login, checkout)
+- Validate form submissions and error handling
+- Check responsive layouts across viewport sizes
+- Regression test after code changes
+
+### Debugging UI Issues
+
+Investigate and diagnose frontend problems:
+
+- Take screenshots to see what users see
+- Inspect page state with ARIA snapshots
+- Trace navigation and redirect flows
+- Examine element visibility and interactivity
+
+### Automating Repetitive Tasks
+
+Speed up development workflows:
+
+- Fill out long forms with test data
+- Navigate through multi-step wizards
+- Reset application state between tests
+- Seed databases via admin interfaces
+
+### Web Scraping & Data Extraction
+
+Gather data from websites efficiently:
+
+- Intercept and replay API requests
+- Extract structured data with pagination
+- Work with authenticated sessions
+- Export results to JSON for analysis
+
+### Working with Authenticated Sites
+
+Use the Chrome extension to leverage existing sessions:
+
+- Test features behind login walls
+- Automate tasks on sites where you're already signed in
+- Access internal tools and dashboards
+- Avoid managing test credentials
+
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
