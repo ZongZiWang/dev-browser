@@ -107,6 +107,32 @@ _See [dev-browser-eval](https://github.com/SawyerHood/dev-browser-eval) for meth
 | [Playwright Skill](https://github.com/lackeyjb/playwright-skill) | Full scripts that run end-to-end                  | Fast but fragile; scripts start fresh every time       |
 | **Dev Browser**                                                  | Stateful server + agentic script execution        | Best of both: persistent state with flexible execution |
 
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+**Quick start:**
+
+1. Open an issue to discuss your proposed change
+2. Fork the repo and create a branch from `main`
+3. Install dependencies and run tests:
+
+   ```bash
+   # Root (formatting)
+   npm install
+
+   # Skill
+   cd skills/dev-browser && npm install
+   npm test                    # Run tests
+   npx tsc --noEmit            # Type check
+
+   # Extension
+   cd extension && npm install
+   npm run test:run            # Run tests
+   ```
+
+4. Submit a PR referencing the related issue
+
 ## License
 
 MIT
