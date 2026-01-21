@@ -118,10 +118,6 @@ We welcome contributions! Before you start:
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
-## License
-
-MIT
-
 ## Author
 
 [Sawyer Hood](https://github.com/sawyerhood)
