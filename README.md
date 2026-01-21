@@ -153,6 +153,123 @@ _See [dev-browser-eval](https://github.com/SawyerHood/dev-browser-eval) for meth
 | [Playwright Skill](https://github.com/lackeyjb/playwright-skill) | Full scripts that run end-to-end                  | Fast but fragile; scripts start fresh every time       |
 | **Dev Browser**                                                  | Stateful server + agentic script execution        | Best of both: persistent state with flexible execution |
 
+## How It Works
+
+Dev Browser consists of three main components:
+
+1. **Persistent Server** - Launches Chromium with `launchPersistentContext`, preserving cookies and localStorage across sessions. Pages are registered by name and persist until explicitly closed.
+
+2. **Client Library** - Connects to the server via CDP (Chrome DevTools Protocol) and returns standard Playwright `Page` objects for automation.
+
+3. **ARIA Snapshots** - Generates LLM-friendly accessibility trees for element discovery, making it easy for Claude to understand and interact with page elements.
+
+```
+┌─────────────────┐     HTTP/CDP     ┌─────────────────┐
+│  Claude Code    │◄───────────────►│  Dev Browser    │
+│  (runs scripts) │                  │  Server         │
+└─────────────────┘                  └────────┬────────┘
+                                              │
+                                              ▼
+                                     ┌─────────────────┐
+                                     │  Chromium       │
+                                     │  (persistent)   │
+                                     └─────────────────┘
+```
+
+## Troubleshooting
+
+### Server won't start
+
+```bash
+# Check if port 9222 is already in use
+lsof -i :9222
+
+# Kill existing process if needed
+kill -9 $(lsof -t -i :9222)
+```
+
+### Browser not launching
+
+Make sure Playwright browsers are installed:
+
+```bash
+cd skills/dev-browser && npx playwright install chromium
+```
+
+### Extension not connecting
+
+1. Ensure the extension is toggled to "Active" in Chrome
+2. Check that the relay server is running (`npm run start-extension`)
+3. Look for "Extension connected" message in the console
+
+### Scripts timing out
+
+- Use `waitForPageLoad(page)` after navigation
+- Use `page.waitForSelector()` for dynamic content
+- Increase timeout: `page.waitForSelector('.element', { timeout: 10000 })`
+
+### Permission errors
+
+Add the required permissions to `~/.claude/settings.json` (see [Permissions](#permissions) section).
+
+## FAQ
+
+**Q: Can I use Dev Browser with sites that require login?**
+
+A: Yes! Use the Chrome extension to control your existing browser with all your logged-in sessions intact. Or use standalone mode which preserves cookies across sessions.
+
+**Q: Does it work with SPAs (Single Page Applications)?**
+
+A: Yes. Dev Browser handles SPAs well. Use `waitForPageLoad()` after navigation and `page.waitForSelector()` for dynamically loaded content.
+
+**Q: Can I run multiple browsers simultaneously?**
+
+A: The server manages a single browser context, but you can have multiple named pages open at once. Use descriptive names like `"checkout"`, `"admin"`, `"profile"`.
+
+**Q: How do I handle popups and new tabs?**
+
+A: Use Playwright's standard popup handling:
+
+```typescript
+const [popup] = await Promise.all([
+  page.waitForEvent('popup'),
+  page.click('a[target="_blank"]')
+]);
+```
+
+**Q: Is my data safe?**
+
+A: Dev Browser runs locally on your machine. No data is sent to external servers. The Chrome extension only activates when you explicitly enable it.
+
+## Contributing
+
+Contributions are welcome! Here's how to get started:
+
+```bash
+# Clone the repository
+git clone https://github.com/sawyerhood/dev-browser
+cd dev-browser/skills/dev-browser
+
+# Install dependencies
+npm install
+
+# Run in development mode
+npm run dev
+
+# Run tests
+npm test
+
+# Type check
+npx tsc --noEmit
+```
+
+### Development Guidelines
+
+- Use Node.js/npm (not Bun)
+- Use `import type { ... }` for type-only imports
+- Run `npm test` and `npx tsc --noEmit` before submitting PRs
+- Keep scripts small and focused
+
 ## License
 
 MIT
