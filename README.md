@@ -84,9 +84,39 @@ Or run with `claude --dangerously-skip-permissions` (skips all prompts).
 
 Just ask Claude to interact with your browser:
 
+### Testing & Debugging
+
 > "Open localhost:3000 and verify the signup flow works"
 
 > "Go to the settings page and figure out why the save button isn't working"
+
+> "Test the checkout flow end-to-end and take screenshots at each step"
+
+> "Fill out the contact form with test data and verify the validation errors"
+
+### Development Workflow
+
+> "Navigate to my app and check if the new feature I just deployed is working"
+
+> "Open the admin dashboard and verify all the widgets are loading correctly"
+
+> "Go to the login page and test both valid and invalid credentials"
+
+### Data Extraction
+
+> "Scrape the product listings from this page and save them to a JSON file"
+
+> "Extract all the article links from the homepage"
+
+> "Capture the API responses when I navigate through the site"
+
+### Using Your Chrome Session
+
+> "Connect to my Chrome and check my GitHub notifications"
+
+> "Use the extension to access my logged-in Jira board and find open tickets"
+
+> "Go to my email in my browser and summarize unread messages"
 
 ## Benchmarks
 
