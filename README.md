@@ -133,10 +133,6 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 4. Submit a PR referencing the related issue
 
-## License
-
-MIT
-
 ## Author
 
 [Sawyer Hood](https://github.com/sawyerhood)
