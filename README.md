@@ -88,6 +88,50 @@ Just ask Claude to interact with your browser:
 
 > "Go to the settings page and figure out why the save button isn't working"
 
+### More Use Cases
+
+**Testing & Verification**
+
+- "Run through the checkout flow and make sure the payment form validates correctly"
+- "Test the login page with invalid credentials and verify the error messages appear"
+- "Navigate to the dashboard and confirm all the charts are rendering properly"
+- "Fill out the contact form and verify the success message shows after submission"
+
+**Debugging & Inspection**
+
+- "Check if the API response is showing up correctly on the user profile page"
+- "Inspect the network requests when I click the submit button"
+- "Find out why the dropdown menu isn't appearing when I hover over it"
+- "Look at the console logs on the home page and tell me if there are any errors"
+
+**Development Workflows**
+
+- "Take a screenshot of the landing page at different viewport sizes"
+- "Compare the current state of the page with this design mockup"
+- "Click through all the navigation links and make sure none are broken"
+- "Test the dark mode toggle and verify all components switch themes correctly"
+
+**Form & Input Testing**
+
+- "Fill the registration form with test data and submit it"
+- "Test the search functionality with various queries"
+- "Verify that the date picker works correctly and restricts past dates"
+- "Check if the file upload accepts only the allowed file types"
+
+**E2E User Journeys**
+
+- "Simulate a new user signing up, creating their first project, and inviting a team member"
+- "Go through the entire onboarding flow and note any UX issues"
+- "Test the password reset flow from start to finish"
+- "Verify the shopping cart persists items after refreshing the page"
+
+**Accessibility & Visual Testing**
+
+- "Check if all interactive elements are keyboard accessible on the main page"
+- "Verify the focus states are visible when tabbing through the form"
+- "Confirm that images have proper alt text on the product listing page"
+- "Test the site with zoomed-in text to ensure layouts don't break"
+
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
