@@ -108,12 +108,6 @@ Just ask Claude to interact with your browser:
 - **Data entry** - Populate test data across multiple pages
 - **Screenshot documentation** - Capture screenshots of specific app states
 
-### Integration Testing
-
-- **API verification** - Test frontend behavior with actual backend responses
-- **Authentication flows** - Test login, logout, and session management
-- **Third-party integrations** - Verify OAuth, payment flows, and external services
-
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
