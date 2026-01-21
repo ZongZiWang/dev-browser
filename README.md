@@ -88,6 +88,32 @@ Just ask Claude to interact with your browser:
 
 > "Go to the settings page and figure out why the save button isn't working"
 
+## Use Cases
+
+### Testing & Verification
+
+- **End-to-end testing** - Verify user flows work correctly after making changes
+- **Visual regression checks** - Confirm UI changes look as expected
+- **Form validation testing** - Test form submissions and error handling
+
+### Debugging & Development
+
+- **Reproduce reported bugs** - Navigate to specific states to understand issues
+- **Inspect runtime behavior** - Check network requests, console logs, and DOM state
+- **Cross-browser testing** - Verify functionality across different browsers
+
+### Automation & Productivity
+
+- **Repetitive testing tasks** - Automate filling forms, clicking through flows
+- **Data entry** - Populate test data across multiple pages
+- **Screenshot documentation** - Capture screenshots of specific app states
+
+### Integration Testing
+
+- **API verification** - Test frontend behavior with actual backend responses
+- **Authentication flows** - Test login, logout, and session management
+- **Third-party integrations** - Verify OAuth, payment flows, and external services
+
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
