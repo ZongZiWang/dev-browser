@@ -88,6 +88,36 @@ Just ask Claude to interact with your browser:
 
 > "Go to the settings page and figure out why the save button isn't working"
 
+## Use Cases
+
+### Testing & Verification
+
+- **End-to-end testing** - Verify user flows work correctly after making changes
+- **Cross-browser testing** - Check that features render and behave as expected
+- **Form validation testing** - Ensure form inputs, error states, and submissions work properly
+- **Responsive design checks** - Verify layouts adapt correctly to different viewport sizes
+
+### Debugging & Development
+
+- **Visual debugging** - Inspect UI issues by having Claude navigate to problem areas
+- **State inspection** - Check application state, localStorage, or cookies during development
+- **API integration testing** - Verify frontend-backend communication is working correctly
+- **Console error detection** - Identify JavaScript errors or warnings in real-time
+
+### Automation & Workflow
+
+- **Screenshot capture** - Take screenshots of specific pages or states for documentation
+- **Data entry automation** - Fill out forms or input test data across multiple pages
+- **Repetitive task automation** - Automate common development workflows like logging in
+- **Content verification** - Check that dynamic content loads and displays correctly
+
+### QA & Review
+
+- **Pull request verification** - Test changes in a PR before merging
+- **Regression testing** - Verify existing features still work after updates
+- **Accessibility checks** - Navigate the site to identify potential accessibility issues
+- **Performance observation** - Monitor page load times and responsiveness
+
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
