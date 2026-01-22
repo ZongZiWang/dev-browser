@@ -88,6 +88,33 @@ Just ask Claude to interact with your browser:
 
 > "Go to the settings page and figure out why the save button isn't working"
 
+## Use Cases
+
+### Local Development & Testing
+
+- **End-to-end testing** - Verify user flows like signup, checkout, or onboarding work correctly
+- **Visual regression checks** - Take screenshots to confirm UI changes look right
+- **Form validation testing** - Submit forms with various inputs to test validation logic
+- **Debug UI issues** - Inspect page state, click through flows, and identify where things break
+
+### Web Scraping & Data Extraction
+
+- **Extract structured data** - Pull product info, article content, or listings from websites
+- **API discovery** - Intercept network requests to understand and replay backend APIs
+- **Paginated data collection** - Automatically navigate through multi-page results
+
+### Authenticated Workflows (with Chrome Extension)
+
+- **Test logged-in experiences** - Use your existing browser sessions to automate authenticated flows
+- **Social media automation** - Post, like, or extract data from platforms where you're already logged in
+- **Admin panel tasks** - Automate repetitive tasks in dashboards and admin interfaces
+
+### Cross-Browser Verification
+
+- **Multi-page workflows** - Keep multiple pages open and switch between them (e.g., admin + user view)
+- **State persistence** - Pages stay alive between script runs, so you can iterate without re-navigating
+- **Session debugging** - When something fails, the page state is preserved for inspection
+
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
