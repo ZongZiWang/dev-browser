@@ -88,6 +88,48 @@ Just ask Claude to interact with your browser:
 
 > "Go to the settings page and figure out why the save button isn't working"
 
+## Use Cases
+
+### End-to-End Testing During Development
+
+Verify your features work as expected while you build them:
+
+- "Test the login flow with valid and invalid credentials"
+- "Check that the form validation shows the right error messages"
+- "Verify the checkout process completes successfully"
+
+### Visual Verification
+
+Let Claude see and verify UI changes:
+
+- "Take a screenshot of the dashboard and confirm the new chart is rendering"
+- "Check if the mobile navigation menu opens correctly"
+- "Verify the dark mode toggle updates all components"
+
+### Debugging UI Issues
+
+Investigate problems interactively:
+
+- "Click through the user flow and find where the error occurs"
+- "Check what happens when I submit the form with empty fields"
+- "Figure out why the dropdown menu isn't closing"
+
+### Multi-Step Workflows
+
+Test complex user journeys:
+
+- "Create a new account, set up a profile, and make a purchase"
+- "Upload a file, process it, and download the result"
+- "Invite a team member and verify they receive the correct permissions"
+
+### API + UI Integration
+
+Verify frontend-backend integration:
+
+- "Submit the contact form and confirm the API receives the data"
+- "Check that the real-time notifications appear when triggered"
+- "Verify the pagination loads new items from the server"
+
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
