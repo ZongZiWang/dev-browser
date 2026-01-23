@@ -244,6 +244,39 @@ export interface DevBrowserClient {
   getServerInfo: () => Promise<ServerInfo>;
 }
 
+/**
+ * Helper to fetch with retry and exponential backoff.
+ * Used for server communication that may fail transiently.
+ */
+async function fetchWithRetry(
+  url: string,
+  options?: RequestInit,
+  maxRetries = 3,
+  baseDelayMs = 500
+): Promise<Response> {
+  let lastError: Error | null = null;
+
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      const res = await fetch(url, options);
+      // Treat server errors (5xx) as transient, client errors (4xx) as permanent
+      if (res.ok || (res.status >= 400 && res.status < 500)) {
+        return res;
+      }
+      throw new Error(`Server error ${res.status}: ${res.statusText}`);
+    } catch (err) {
+      lastError = err instanceof Error ? err : new Error(String(err));
+
+      if (attempt < maxRetries - 1) {
+        const delayMs = baseDelayMs * Math.pow(2, attempt); // Exponential backoff
+        await new Promise((resolve) => setTimeout(resolve, delayMs));
+      }
+    }
+  }
+
+  throw new Error(`Failed after ${maxRetries} retries: ${lastError?.message}`);
+}
+
 export async function connect(serverUrl = "http://localhost:9222"): Promise<DevBrowserClient> {
   let browser: Browser | null = null;
   let wsEndpoint: string | null = null;
@@ -263,17 +296,29 @@ export async function connect(serverUrl = "http://localhost:9222"): Promise<DevB
     // Start new connection with mutex
     connectingPromise = (async () => {
       try {
-        // Fetch wsEndpoint from server
-        const res = await fetch(serverUrl);
+        // Fetch wsEndpoint from server (with retry for transient failures)
+        const res = await fetchWithRetry(serverUrl);
         if (!res.ok) {
           throw new Error(`Server returned ${res.status}: ${await res.text()}`);
         }
         const info = (await res.json()) as ServerInfoResponse;
         wsEndpoint = info.wsEndpoint;
 
-        // Connect to the browser via CDP
-        browser = await chromium.connectOverCDP(wsEndpoint);
-        return browser;
+        // Connect to the browser via CDP (with retry for transient failures)
+        let lastCdpError: Error | null = null;
+        for (let attempt = 0; attempt < 3; attempt++) {
+          try {
+            browser = await chromium.connectOverCDP(wsEndpoint);
+            return browser;
+          } catch (err) {
+            lastCdpError = err instanceof Error ? err : new Error(String(err));
+            if (attempt < 2) {
+              const delayMs = 500 * Math.pow(2, attempt);
+              await new Promise((resolve) => setTimeout(resolve, delayMs));
+            }
+          }
+        }
+        throw new Error(`CDP connection failed after 3 retries: ${lastCdpError?.message}`);
       } finally {
         connectingPromise = null;
       }
@@ -315,8 +360,8 @@ export async function connect(serverUrl = "http://localhost:9222"): Promise<DevB
 
   // Helper to get a page by name (used by multiple methods)
   async function getPage(name: string, options?: PageOptions): Promise<Page> {
-    // Request the page from server (creates if doesn't exist)
-    const res = await fetch(`${serverUrl}/pages`, {
+    // Request the page from server (creates if doesn't exist) - with retry
+    const res = await fetchWithRetry(`${serverUrl}/pages`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, viewport: options?.viewport } satisfies GetPageRequest),

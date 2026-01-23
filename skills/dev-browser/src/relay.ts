@@ -181,7 +181,11 @@ export async function serveRelay(options: RelayOptions = {}): Promise<RelayServe
     }
   }
 
-  async function sendToExtension({
+  /**
+   * Send a single request to the extension with timeout.
+   * Internal helper - use sendToExtensionWithRetry for commands that should be retried.
+   */
+  async function sendToExtensionOnce({
     method,
     params,
     timeout = 30000,
@@ -216,6 +220,56 @@ export async function serveRelay(options: RelayOptions = {}): Promise<RelayServe
         },
       });
     });
+  }
+
+  /**
+   * Send a request to the extension with retry logic and exponential backoff.
+   * Retries on timeout or transient errors, but not on permanent errors.
+   */
+  async function sendToExtension({
+    method,
+    params,
+    timeout = 30000,
+    maxRetries = 3,
+    baseDelayMs = 500,
+  }: {
+    method: string;
+    params?: Record<string, unknown>;
+    timeout?: number;
+    maxRetries?: number;
+    baseDelayMs?: number;
+  }): Promise<unknown> {
+    let lastError: Error | null = null;
+
+    for (let attempt = 0; attempt < maxRetries; attempt++) {
+      try {
+        return await sendToExtensionOnce({ method, params, timeout });
+      } catch (err) {
+        lastError = err instanceof Error ? err : new Error(String(err));
+        const errorMessage = lastError.message.toLowerCase();
+
+        // Don't retry on permanent errors (invalid params, not found, etc.)
+        const isPermanentError =
+          errorMessage.includes("not found") ||
+          errorMessage.includes("invalid") ||
+          errorMessage.includes("not supported") ||
+          errorMessage.includes("already") ||
+          errorMessage.includes("extension not connected");
+
+        if (isPermanentError) {
+          throw lastError;
+        }
+
+        // Retry on transient errors (timeout, network issues)
+        if (attempt < maxRetries - 1) {
+          const delayMs = baseDelayMs * Math.pow(2, attempt); // Exponential backoff: 500, 1000, 2000...
+          log(`Retry ${attempt + 1}/${maxRetries} for ${method} after ${delayMs}ms (error: ${lastError.message})`);
+          await new Promise((resolve) => setTimeout(resolve, delayMs));
+        }
+      }
+    }
+
+    throw new Error(`Failed after ${maxRetries} retries: ${lastError?.message}`);
   }
 
   async function routeCdpCommand({
@@ -391,31 +445,38 @@ export async function serveRelay(options: RelayOptions = {}): Promise<RelayServe
         params: { method: "Target.createTarget", params: { url: "about:blank" } },
       })) as { targetId: string };
 
-      // Wait for Target.attachedToTarget event to register the new target
-      await new Promise((resolve) => setTimeout(resolve, 200));
+      // Poll for the target to be registered (instead of fixed wait)
+      // This handles variable timing and ensures the target is actually ready
+      const maxWaitMs = 5000; // Maximum 5 seconds
+      const pollIntervalMs = 50; // Check every 50ms
+      const startTime = Date.now();
 
-      // Find and name the new target
-      for (const [sessionId, target] of connectedTargets) {
-        if (target.targetId === result.targetId) {
-          namedPages.set(name, sessionId);
-          // Activate the tab so it becomes the active tab
-          await sendToExtension({
-            method: "forwardCDPCommand",
-            params: {
-              method: "Target.activateTarget",
-              params: { targetId: target.targetId },
-            },
-          });
-          return c.json({
-            wsEndpoint: `ws://${host}:${port}/cdp`,
-            name,
-            targetId: target.targetId,
-            url: target.targetInfo.url,
-          });
+      while (Date.now() - startTime < maxWaitMs) {
+        // Find the target in connectedTargets
+        for (const [sessionId, target] of connectedTargets) {
+          if (target.targetId === result.targetId) {
+            namedPages.set(name, sessionId);
+            // Activate the tab so it becomes the active tab
+            await sendToExtension({
+              method: "forwardCDPCommand",
+              params: {
+                method: "Target.activateTarget",
+                params: { targetId: target.targetId },
+              },
+            });
+            return c.json({
+              wsEndpoint: `ws://${host}:${port}/cdp`,
+              name,
+              targetId: target.targetId,
+              url: target.targetInfo.url,
+            });
+          }
         }
+        // Wait before next poll
+        await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
       }
 
-      throw new Error("Target created but not found in registry");
+      throw new Error(`Target created (${result.targetId}) but not registered within ${maxWaitMs}ms`);
     } catch (err) {
       log("Error creating tab:", err);
       return c.json({ error: (err as Error).message }, 500);
