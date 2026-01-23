@@ -88,6 +88,47 @@ Just ask Claude to interact with your browser:
 
 > "Go to the settings page and figure out why the save button isn't working"
 
+The skill triggers automatically on phrases like "go to [url]", "click on", "fill out the form", "take a screenshot", "scrape", "automate", "test the website", or "log into".
+
+### Two Modes
+
+**Standalone Mode (Default)** - Launches a new Chromium browser for fresh automation sessions:
+
+```bash
+./skills/dev-browser/server.sh &
+```
+
+Add `--headless` flag if needed. Wait for the `Ready` message before running scripts.
+
+**Extension Mode** - Connects to your existing Chrome browser (useful for logged-in sessions):
+
+```bash
+cd skills/dev-browser && npm i && npm run start-extension &
+```
+
+Wait for `Extension connected` in the console before running scripts.
+
+### Example Script
+
+Once the server is running, scripts are executed like this:
+
+```bash
+cd skills/dev-browser && npx tsx <<'EOF'
+import { connect, waitForPageLoad } from "@/client.js";
+
+const client = await connect();
+const page = await client.page("example");
+
+await page.goto("https://example.com");
+await waitForPageLoad(page);
+
+console.log({ title: await page.title(), url: page.url() });
+await client.disconnect();
+EOF
+```
+
+Pages persist across script executions, so you can navigate once and interact multiple times without starting fresh.
+
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
