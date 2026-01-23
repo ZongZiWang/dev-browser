@@ -114,3 +114,7 @@ MIT
 ## Author
 
 [Sawyer Hood](https://github.com/sawyerhood)
+
+## Contributors
+
+- Joey
