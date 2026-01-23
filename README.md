@@ -4,6 +4,20 @@
 
 A browser automation plugin for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that lets Claude control your browser to test and verify your work as you develop.
 
+## About Harvey AI
+
+[Harvey AI](https://www.harvey.ai/) is a legal technology company building AI-powered tools for legal professionals. Harvey develops artificial intelligence solutions specifically designed for the legal industry, helping lawyers and legal teams work more efficiently.
+
+**What Harvey AI offers:**
+
+- **Legal Research** - AI-powered research tools that quickly analyze case law, statutes, and legal documents
+- **Document Analysis** - Tools to review, summarize, and extract insights from contracts and legal documents
+- **Due Diligence** - Automated review processes for M&A transactions and other legal proceedings
+- **Contract Work** - Assistance with drafting, reviewing, and analyzing contracts
+- **Legal Writing** - Help with drafting legal documents, briefs, and memos
+
+Harvey is built on large language models (LLMs) and is trained specifically for legal applications, making it more accurate and relevant for legal use cases compared to general-purpose AI tools.
+
 **Key features:**
 
 - **Persistent pages** - Navigate once, interact across multiple scripts
