@@ -88,6 +88,48 @@ Just ask Claude to interact with your browser:
 
 > "Go to the settings page and figure out why the save button isn't working"
 
+## Use Cases
+
+### Testing During Development
+
+Verify your changes work as expected without leaving your editor:
+
+> "Open my app at localhost:3000, create a new user account, and confirm the welcome email modal appears"
+
+> "Test the checkout flow with a $50 item and verify the tax calculation is correct"
+
+### Debugging UI Issues
+
+Let Claude inspect and diagnose visual or interactive problems:
+
+> "The dropdown menu on the navbar isn't closing when I click outside. Open the page and figure out what's wrong"
+
+> "Users report the form submits twice sometimes. Test the contact form and check for the bug"
+
+### Scraping and Data Extraction
+
+Extract structured data from web pages:
+
+> "Go to our competitor's pricing page and extract all the plan names and prices into a markdown table"
+
+> "Open the GitHub releases page for this repo and list all version numbers from the last year"
+
+### Automated Workflows
+
+Perform repetitive browser tasks:
+
+> "Log into our staging environment, go to the admin panel, and export the user list as CSV"
+
+> "Open Figma, find the latest mockup in our project, and take a screenshot for the PR description"
+
+### End-to-End Testing
+
+Validate complete user journeys:
+
+> "Test the entire onboarding flow: sign up, verify email link works, complete profile setup, and reach the dashboard"
+
+> "Verify that a user can add items to cart, apply a discount code, and complete checkout with test credentials"
+
 ## Benchmarks
 
 | Method                  | Time    | Cost  | Turns | Success |
