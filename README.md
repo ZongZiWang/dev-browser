@@ -12,8 +12,13 @@ A browser automation plugin for [Claude Code](https://docs.anthropic.com/en/docs
 
 ## Prerequisites
 
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI installed
 - [Node.js](https://nodejs.org) (v18 or later) with npm
+- One of the following AI coding tools:
+  - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI
+  - [Amp](https://ampcode.com) or [Codex](https://openai.com/index/codex/)
+- **For Chrome Extension:** Google Chrome or Chromium-based browser
+
+> **Note:** Playwright will automatically download Chromium on first run if not using the Chrome Extension.
 
 ## Installation
 
